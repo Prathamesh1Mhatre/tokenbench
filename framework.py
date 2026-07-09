@@ -33,8 +33,9 @@ def gen_json(seed):
     needles=[("extract",tgt["email"]),("extract",str(tgt["id"])),
              ("filter",rows[target]["name"]),
              ("multihop",tgt["email"]),("multihop",str(tgt["score"]))]
-    # aggregate: sample of status tokens across the array (need many to survive)
-    for i in range(0,n,10): needles.append(("aggregate",f'"email": "u{seed}_{i}@acme.io"'))
+    # aggregate: values sampled across the whole array (catches row-sampling/truncation;
+    # value-only so lossless re-serializers like TOON aren't falsely penalized)
+    for i in range(0,n,10): needles.append(("aggregate",f"u{seed}_{i}@acme.io"))
     return txt,needles
 
 def gen_code(seed):

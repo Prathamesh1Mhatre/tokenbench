@@ -8,13 +8,13 @@
       "content": "json",
       "reduction_mean": 56.4,
       "reduction_std": 0.0,
-      "latency_ms": 78,
+      "latency_ms": 84,
       "errors": 0,
       "survival": {
         "extract": 100,
         "filter": 100,
         "multihop": 100,
-        "aggregate": 0
+        "aggregate": 100
       }
     },
     {

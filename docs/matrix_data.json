@@ -1,0 +1,247 @@
+{
+  "baseline": {
+    "json": {
+      "red": 13.3,
+      "fid": 100,
+      "agg": 100,
+      "ms": 0
+    },
+    "code": {
+      "red": 5.4,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "logs": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "prose": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "conversation": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    }
+  },
+  "headroom": {
+    "json": {
+      "red": 57.9,
+      "fid": 100,
+      "agg": 100,
+      "ms": 11
+    },
+    "code": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 2
+    },
+    "logs": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "prose": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "conversation": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 55
+    }
+  },
+  "toon": {
+    "json": {
+      "red": 56.4,
+      "fid": 100,
+      "agg": 100,
+      "ms": 84
+    },
+    "code": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "logs": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "prose": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "conversation": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    }
+  },
+  "claw-compactor": {
+    "json": {
+      "red": 77.1,
+      "fid": 10,
+      "agg": 28,
+      "ms": 18
+    },
+    "code": {
+      "red": 6.1,
+      "fid": 100,
+      "agg": null,
+      "ms": 3
+    },
+    "logs": {
+      "red": 14.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 6
+    },
+    "prose": {
+      "red": 61.4,
+      "fid": 100,
+      "agg": null,
+      "ms": 1
+    },
+    "conversation": {
+      "red": 8.1,
+      "fid": 62,
+      "agg": null,
+      "ms": 11
+    }
+  },
+  "rtk": {
+    "json": {
+      "red": 98.8,
+      "fid": 0,
+      "agg": 12,
+      "ms": 17
+    },
+    "code": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 16
+    },
+    "logs": {
+      "red": 74.9,
+      "fid": 20,
+      "agg": null,
+      "ms": 16
+    },
+    "prose": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 15
+    },
+    "conversation": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 15
+    }
+  },
+  "llmlingua@0.5": {
+    "json": {
+      "red": 45.5,
+      "fid": 0,
+      "agg": 0,
+      "ms": 2762
+    },
+    "code": {
+      "red": 44.3,
+      "fid": 10,
+      "agg": null,
+      "ms": 511
+    },
+    "logs": {
+      "red": 53.5,
+      "fid": 8,
+      "agg": null,
+      "ms": 786
+    },
+    "prose": {
+      "red": 46.8,
+      "fid": 0,
+      "agg": null,
+      "ms": 206
+    },
+    "conversation": {
+      "red": 39.7,
+      "fid": 50,
+      "agg": null,
+      "ms": 354
+    }
+  },
+  "llmlingua@0.33": {
+    "json": {
+      "red": 66.1,
+      "fid": 0,
+      "agg": 0,
+      "ms": 2057
+    },
+    "code": {
+      "red": 62.4,
+      "fid": 0,
+      "agg": null,
+      "ms": 491
+    },
+    "logs": {
+      "red": 67.6,
+      "fid": 0,
+      "agg": null,
+      "ms": 820
+    },
+    "prose": {
+      "red": 67.1,
+      "fid": 0,
+      "agg": null,
+      "ms": 238
+    },
+    "conversation": {
+      "red": 58.8,
+      "fid": 50,
+      "agg": null,
+      "ms": 353
+    }
+  },
+  "selective-context": {
+    "code": {
+      "red": 25.4,
+      "fid": 100,
+      "agg": null,
+      "ms": 167
+    },
+    "prose": {
+      "red": 23.9,
+      "fid": 15,
+      "agg": null,
+      "ms": 304
+    },
+    "conversation": {
+      "red": 17.1,
+      "fid": 50,
+      "agg": null,
+      "ms": 746
+    }
+  },
+  "prompt-optimizer": {}
+}

@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+"""Consolidate results/*.json -> docs/matrix.md (+ JSON blob for charts)."""
+import json, glob, os
+
+ORDER = ["baseline", "headroom", "toon", "claw-compactor", "rtk",
+         "llmlingua@0.5", "llmlingua@0.33", "selective-context"]
+LANES = ["json", "code", "logs", "prose", "conversation"]
+
+def fid(surv):
+    """worst-case exact-value survival across task types (aggregate excluded on
+    lanes where it exists — reported separately)."""
+    keys = [k for k in surv if k != "aggregate"]
+    return min(surv[k] for k in keys) if keys else None
+
+def main():
+    tools = {}
+    for f in glob.glob("results/*.json"):
+        d = json.load(open(f))
+        tools[d["tool"]] = d
+    names = [t for t in ORDER if t in tools] + [t for t in tools if t not in ORDER]
+
+    lines = ["# tokenbench matrix (measured, N per results/*.json)", ""]
+    lines += ["| lane | " + " | ".join(names) + " |",
+              "|---|" + "---|" * len(names)]
+    for lane in LANES:
+        row = [lane]
+        for n in names:
+            rec = next((r for r in tools[n]["results"] if r.get("content") == lane), None)
+            if not rec or "error" in rec:
+                row.append("✗ err" if rec else "—")
+                continue
+            f = fid(rec["survival"])
+            agg = rec["survival"].get("aggregate")
+            cell = f"{rec['reduction_mean']:.0f}% / fid {f:.0f}%"
+            if agg is not None:
+                cell += f" (agg {agg}%)"
+            row.append(cell)
+        lines.append("| " + " | ".join(str(x) for x in row) + " |")
+    lines += ["", "cell = reduction% / worst-case needle fidelity% (agg = aggregate-task survival)", ""]
+
+    blob = {}
+    for n in names:
+        blob[n] = {r["content"]: {"red": r.get("reduction_mean"), "fid": fid(r["survival"]) if "survival" in r else None,
+                                  "agg": r.get("survival", {}).get("aggregate"), "ms": r.get("latency_ms")}
+                   for r in tools[n]["results"] if "error" not in r}
+    os.makedirs("docs", exist_ok=True)
+    open("docs/matrix.md", "w").write("\n".join(lines))
+    json.dump(blob, open("docs/matrix_data.json", "w"), indent=2)
+    print("\n".join(lines))
+
+if __name__ == "__main__":
+    main()

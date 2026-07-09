@@ -1,0 +1,28 @@
+{
+  "tool": "prompt-optimizer",
+  "kind": "library",
+  "notes": "classic entropy/stopword pruning (vaibkumr, 2023)",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "error": "all 20 runs failed"
+    },
+    {
+      "content": "code",
+      "error": "all 20 runs failed"
+    },
+    {
+      "content": "logs",
+      "error": "all 20 runs failed"
+    },
+    {
+      "content": "prose",
+      "error": "all 20 runs failed"
+    },
+    {
+      "content": "conversation",
+      "error": "all 20 runs failed"
+    }
+  ]
+}

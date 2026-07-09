@@ -1,0 +1,50 @@
+{
+  "tool": "selective-context",
+  "kind": "library",
+  "notes": "self-information pruning via local GPT-2 (EMNLP'23 baseline)",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "error": "all 20 runs failed"
+    },
+    {
+      "content": "code",
+      "reduction_mean": 25.4,
+      "reduction_std": 1.0,
+      "latency_ms": 167,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "logs",
+      "error": "all 20 runs failed"
+    },
+    {
+      "content": "prose",
+      "reduction_mean": 23.9,
+      "reduction_std": 3.4,
+      "latency_ms": 304,
+      "errors": 0,
+      "survival": {
+        "extract": 15,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": 17.1,
+      "reduction_std": 0.0,
+      "latency_ms": 746,
+      "errors": 0,
+      "survival": {
+        "extract": 50,
+        "multihop": 100
+      }
+    }
+  ]
+}

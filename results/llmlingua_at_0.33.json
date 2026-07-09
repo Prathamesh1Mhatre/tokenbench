@@ -1,0 +1,66 @@
+{
+  "tool": "llmlingua@0.33",
+  "kind": "library",
+  "notes": "same, aggressive rate \u2014 known fidelity cliff",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "reduction_mean": 66.1,
+      "reduction_std": 0.1,
+      "latency_ms": 1684,
+      "errors": 0,
+      "survival": {
+        "extract": 38,
+        "filter": 0,
+        "multihop": 0,
+        "aggregate": 0
+      }
+    },
+    {
+      "content": "code",
+      "reduction_mean": 62.4,
+      "reduction_std": 0.6,
+      "latency_ms": 435,
+      "errors": 0,
+      "survival": {
+        "extract": 0,
+        "filter": 100,
+        "multihop": 0
+      }
+    },
+    {
+      "content": "logs",
+      "reduction_mean": 67.6,
+      "reduction_std": 0.9,
+      "latency_ms": 721,
+      "errors": 0,
+      "survival": {
+        "extract": 0,
+        "filter": 10
+      }
+    },
+    {
+      "content": "prose",
+      "reduction_mean": 67.1,
+      "reduction_std": 1.1,
+      "latency_ms": 174,
+      "errors": 0,
+      "survival": {
+        "extract": 50,
+        "multihop": 0
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": 58.8,
+      "reduction_std": 0.3,
+      "latency_ms": 316,
+      "errors": 0,
+      "survival": {
+        "extract": 50,
+        "multihop": 100
+      }
+    }
+  ]
+}

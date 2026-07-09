@@ -2,7 +2,7 @@
   "tool": "baseline",
   "kind": "text",
   "notes": "whitespace/blank-line strip \u2014 the honesty floor",
-  "seeds": 3,
+  "seeds": 20,
   "results": [
     {
       "content": "json",

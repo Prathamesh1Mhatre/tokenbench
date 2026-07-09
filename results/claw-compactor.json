@@ -8,13 +8,13 @@
       "content": "json",
       "reduction_mean": 77.1,
       "reduction_std": 0.0,
-      "latency_ms": 42,
+      "latency_ms": 18,
       "errors": 0,
       "survival": {
-        "extract": 30,
-        "filter": 30,
-        "multihop": 30,
-        "aggregate": 31
+        "extract": 10,
+        "filter": 10,
+        "multihop": 10,
+        "aggregate": 28
       }
     },
     {
@@ -33,7 +33,7 @@
       "content": "logs",
       "reduction_mean": 14.0,
       "reduction_std": 0.0,
-      "latency_ms": 7,
+      "latency_ms": 6,
       "errors": 0,
       "survival": {
         "extract": 100,
@@ -54,11 +54,11 @@
     {
       "content": "conversation",
       "reduction_mean": 8.1,
-      "reduction_std": 1.5,
-      "latency_ms": 10,
+      "reduction_std": 1.2,
+      "latency_ms": 11,
       "errors": 0,
       "survival": {
-        "extract": 80,
+        "extract": 62,
         "multihop": 100
       }
     }

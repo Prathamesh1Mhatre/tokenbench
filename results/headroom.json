@@ -1,27 +1,27 @@
 {
-  "tool": "rtk",
-  "kind": "cli",
-  "notes": "rtk 0.42 CLI proxy (69k\u2605): rtk json / rtk log / rtk read, routed by content",
+  "tool": "headroom",
+  "kind": "library",
+  "notes": "content-aware: SmartCrusher JSON / protects code+user msgs; reversible CCR",
   "seeds": 20,
   "results": [
     {
       "content": "json",
-      "reduction_mean": 98.8,
+      "reduction_mean": 57.9,
       "reduction_std": 0.0,
-      "latency_ms": 17,
+      "latency_ms": 11,
       "errors": 0,
       "survival": {
-        "extract": 0,
-        "filter": 0,
-        "multihop": 0,
-        "aggregate": 12
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100,
+        "aggregate": 100
       }
     },
     {
       "content": "code",
       "reduction_mean": 0.0,
       "reduction_std": 0.0,
-      "latency_ms": 16,
+      "latency_ms": 2,
       "errors": 0,
       "survival": {
         "extract": 100,
@@ -31,20 +31,20 @@
     },
     {
       "content": "logs",
-      "reduction_mean": 74.9,
-      "reduction_std": 0.4,
-      "latency_ms": 16,
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
       "errors": 0,
       "survival": {
-        "extract": 45,
-        "filter": 20
+        "extract": 100,
+        "filter": 100
       }
     },
     {
       "content": "prose",
       "reduction_mean": 0.0,
       "reduction_std": 0.0,
-      "latency_ms": 15,
+      "latency_ms": 0,
       "errors": 0,
       "survival": {
         "extract": 100,
@@ -55,7 +55,7 @@
       "content": "conversation",
       "reduction_mean": 0.0,
       "reduction_std": 0.0,
-      "latency_ms": 15,
+      "latency_ms": 55,
       "errors": 0,
       "survival": {
         "extract": 100,

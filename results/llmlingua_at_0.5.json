@@ -1,0 +1,66 @@
+{
+  "tool": "llmlingua@0.5",
+  "kind": "library",
+  "notes": "learned keep/drop token filter (extractive, lossy)",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "reduction_mean": 45.5,
+      "reduction_std": 0.4,
+      "latency_ms": 1918,
+      "errors": 0,
+      "survival": {
+        "extract": 50,
+        "filter": 55,
+        "multihop": 0,
+        "aggregate": 0
+      }
+    },
+    {
+      "content": "code",
+      "reduction_mean": 44.3,
+      "reduction_std": 0.4,
+      "latency_ms": 457,
+      "errors": 0,
+      "survival": {
+        "extract": 95,
+        "filter": 100,
+        "multihop": 10
+      }
+    },
+    {
+      "content": "logs",
+      "reduction_mean": 53.5,
+      "reduction_std": 1.1,
+      "latency_ms": 714,
+      "errors": 0,
+      "survival": {
+        "extract": 8,
+        "filter": 90
+      }
+    },
+    {
+      "content": "prose",
+      "reduction_mean": 46.8,
+      "reduction_std": 0.6,
+      "latency_ms": 182,
+      "errors": 0,
+      "survival": {
+        "extract": 50,
+        "multihop": 0
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": 39.7,
+      "reduction_std": 0.2,
+      "latency_ms": 322,
+      "errors": 0,
+      "survival": {
+        "extract": 50,
+        "multihop": 100
+      }
+    }
+  ]
+}
