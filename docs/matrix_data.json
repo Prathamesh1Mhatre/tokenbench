@@ -164,31 +164,31 @@
       "red": 45.5,
       "fid": 0,
       "agg": 0,
-      "ms": 2762
+      "ms": 1918
     },
     "code": {
       "red": 44.3,
       "fid": 10,
       "agg": null,
-      "ms": 511
+      "ms": 457
     },
     "logs": {
       "red": 53.5,
       "fid": 8,
       "agg": null,
-      "ms": 786
+      "ms": 714
     },
     "prose": {
       "red": 46.8,
       "fid": 0,
       "agg": null,
-      "ms": 206
+      "ms": 182
     },
     "conversation": {
       "red": 39.7,
       "fid": 50,
       "agg": null,
-      "ms": 354
+      "ms": 322
     }
   },
   "llmlingua@0.33": {
@@ -196,31 +196,31 @@
       "red": 66.1,
       "fid": 0,
       "agg": 0,
-      "ms": 2057
+      "ms": 1684
     },
     "code": {
       "red": 62.4,
       "fid": 0,
       "agg": null,
-      "ms": 491
+      "ms": 435
     },
     "logs": {
       "red": 67.6,
       "fid": 0,
       "agg": null,
-      "ms": 820
+      "ms": 721
     },
     "prose": {
       "red": 67.1,
       "fid": 0,
       "agg": null,
-      "ms": 238
+      "ms": 174
     },
     "conversation": {
       "red": 58.8,
       "fid": 50,
       "agg": null,
-      "ms": 353
+      "ms": 316
     }
   },
   "selective-context": {
