@@ -1,0 +1,8 @@
+claw-compactor==7.1.0
+headroom-ai==0.30.0
+llmlingua==0.2.2
+prompt-optimizer==0.2.1
+selective-context==0.1.4
+tiktoken==0.13.0
+toon-format==0.1.0
+twotrim==0.1.1

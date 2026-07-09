@@ -1,0 +1,962 @@
+[
+  {
+    "id": 40000,
+    "name": "user_0",
+    "email": "u0@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 0.0,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40001,
+    "name": "user_1",
+    "email": "u1@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 1.37,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40002,
+    "name": "user_2",
+    "email": "u2@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 2.74,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40003,
+    "name": "user_3",
+    "email": "u3@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 4.11,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40004,
+    "name": "user_4",
+    "email": "u4@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 5.48,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40005,
+    "name": "user_5",
+    "email": "u5@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 6.85,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40006,
+    "name": "user_6",
+    "email": "u6@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 8.22,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40007,
+    "name": "user_7",
+    "email": "u7@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 9.59,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40008,
+    "name": "user_8",
+    "email": "u8@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 10.96,
+    "meta": {
+      "created": "2026-09-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40009,
+    "name": "user_9",
+    "email": "u9@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 12.33,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40010,
+    "name": "user_10",
+    "email": "u10@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 13.7,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40011,
+    "name": "user_11",
+    "email": "u11@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 15.07,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40012,
+    "name": "user_12",
+    "email": "u12@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 16.44,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40013,
+    "name": "user_13",
+    "email": "u13@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 17.81,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40014,
+    "name": "user_14",
+    "email": "u14@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 19.18,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40015,
+    "name": "user_15",
+    "email": "u15@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 20.55,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40016,
+    "name": "user_16",
+    "email": "u16@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 21.92,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40017,
+    "name": "user_17",
+    "email": "u17@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 23.29,
+    "meta": {
+      "created": "2026-09-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40018,
+    "name": "user_18",
+    "email": "u18@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 24.66,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40019,
+    "name": "user_19",
+    "email": "u19@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 26.03,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40020,
+    "name": "user_20",
+    "email": "u20@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 27.4,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40021,
+    "name": "user_21",
+    "email": "u21@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 28.77,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40022,
+    "name": "user_22",
+    "email": "u22@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 30.14,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40023,
+    "name": "user_23",
+    "email": "u23@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 31.51,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40024,
+    "name": "user_24",
+    "email": "u24@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 32.88,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40025,
+    "name": "user_25",
+    "email": "u25@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 34.25,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40026,
+    "name": "user_26",
+    "email": "u26@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 35.62,
+    "meta": {
+      "created": "2026-09-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40027,
+    "name": "user_27",
+    "email": "u27@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 36.99,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40028,
+    "name": "user_28",
+    "email": "u28@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 38.36,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40029,
+    "name": "user_29",
+    "email": "u29@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 39.73,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40030,
+    "name": "user_30",
+    "email": "u30@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 41.1,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40031,
+    "name": "user_31",
+    "email": "u31@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 42.47,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40032,
+    "name": "user_32",
+    "email": "u32@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 43.84,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40033,
+    "name": "user_33",
+    "email": "u33@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 45.21,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40034,
+    "name": "user_34",
+    "email": "u34@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 46.58,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40035,
+    "name": "user_35",
+    "email": "u35@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 47.95,
+    "meta": {
+      "created": "2026-09-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40036,
+    "name": "user_36",
+    "email": "u36@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 49.32,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40037,
+    "name": "user_37",
+    "email": "u37@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 50.69,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40038,
+    "name": "user_38",
+    "email": "u38@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 52.06,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40039,
+    "name": "user_39",
+    "email": "u39@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 53.43,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40040,
+    "name": "user_40",
+    "email": "u40@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 54.8,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40041,
+    "name": "user_41",
+    "email": "u41@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 56.17,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40042,
+    "name": "user_42",
+    "email": "u42@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 57.54,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40043,
+    "name": "user_43",
+    "email": "u43@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 58.91,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40044,
+    "name": "user_44",
+    "email": "u44@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 60.28,
+    "meta": {
+      "created": "2026-09-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40045,
+    "name": "user_45",
+    "email": "u45@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 61.65,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40046,
+    "name": "user_46",
+    "email": "u46@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 63.02,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40047,
+    "name": "user_47",
+    "email": "u47@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 64.39,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40048,
+    "name": "user_48",
+    "email": "u48@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 65.76,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40049,
+    "name": "user_49",
+    "email": "u49@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 67.13,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40050,
+    "name": "user_50",
+    "email": "u50@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 68.5,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40051,
+    "name": "user_51",
+    "email": "u51@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 69.87,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40052,
+    "name": "user_52",
+    "email": "u52@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 71.24,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40053,
+    "name": "user_53",
+    "email": "u53@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 72.61,
+    "meta": {
+      "created": "2026-09-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40054,
+    "name": "user_54",
+    "email": "u54@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 73.98,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40055,
+    "name": "user_55",
+    "email": "u55@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 75.35,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40056,
+    "name": "user_56",
+    "email": "u56@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 76.72,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40057,
+    "name": "user_57",
+    "email": "u57@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 78.09,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40058,
+    "name": "user_58",
+    "email": "u58@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 79.46,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40059,
+    "name": "user_59",
+    "email": "u59@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 80.83,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40060,
+    "name": "user_60",
+    "email": "u60@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 82.2,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40061,
+    "name": "user_61",
+    "email": "u61@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 83.57,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40062,
+    "name": "user_62",
+    "email": "u62@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 84.94,
+    "meta": {
+      "created": "2026-09-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40063,
+    "name": "user_63",
+    "email": "u63@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 86.31,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40064,
+    "name": "user_64",
+    "email": "u64@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 87.68,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40065,
+    "name": "user_65",
+    "email": "u65@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 89.05,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40066,
+    "name": "user_66",
+    "email": "u66@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 90.42,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40067,
+    "name": "user_67",
+    "email": "u67@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 91.79,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40068,
+    "name": "user_68",
+    "email": "u68@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 93.16,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40069,
+    "name": "user_69",
+    "email": "u69@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 94.53,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40070,
+    "name": "user_70",
+    "email": "u70@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 95.9,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40071,
+    "name": "user_71",
+    "email": "u71@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 97.27,
+    "meta": {
+      "created": "2026-09-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40072,
+    "name": "user_72",
+    "email": "u72@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 98.64,
+    "meta": {
+      "created": "2026-01-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40073,
+    "name": "user_73",
+    "email": "u73@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 100.01,
+    "meta": {
+      "created": "2026-02-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40074,
+    "name": "user_74",
+    "email": "u74@acme.io",
+    "status": "inactive",
+    "role": "viewer",
+    "score": 101.38,
+    "meta": {
+      "created": "2026-03-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40075,
+    "name": "user_75",
+    "email": "u75@acme.io",
+    "status": "active",
+    "role": "admin",
+    "score": 102.75,
+    "meta": {
+      "created": "2026-04-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40076,
+    "name": "user_76",
+    "email": "u76@acme.io",
+    "status": "inactive",
+    "role": "member",
+    "score": 104.12,
+    "meta": {
+      "created": "2026-05-15",
+      "region": "eu"
+    }
+  },
+  {
+    "id": 40077,
+    "name": "user_77",
+    "email": "u77@acme.io",
+    "status": "active",
+    "role": "viewer",
+    "score": 105.49,
+    "meta": {
+      "created": "2026-06-15",
+      "region": "ap"
+    }
+  },
+  {
+    "id": 40078,
+    "name": "user_78",
+    "email": "u78@acme.io",
+    "status": "inactive",
+    "role": "admin",
+    "score": 106.86,
+    "meta": {
+      "created": "2026-07-15",
+      "region": "us"
+    }
+  },
+  {
+    "id": 40079,
+    "name": "user_79",
+    "email": "u79@acme.io",
+    "status": "active",
+    "role": "member",
+    "score": 108.23,
+    "meta": {
+      "created": "2026-08-15",
+      "region": "eu"
+    }
+  }
+]

@@ -1,0 +1,44 @@
+User: We need to pick a datastore for the events pipeline.
+Assistant: Given the analytics workload, I recommend ClickHouse over Postgres for the events table.
+User: minor follow-up 0 about schema field f0.
+Assistant: field f0 should be LowCardinality(String), noted.
+User: minor follow-up 1 about schema field f1.
+Assistant: field f1 should be LowCardinality(String), noted.
+User: minor follow-up 2 about schema field f2.
+Assistant: field f2 should be LowCardinality(String), noted.
+User: minor follow-up 3 about schema field f3.
+Assistant: field f3 should be LowCardinality(String), noted.
+User: minor follow-up 4 about schema field f4.
+Assistant: field f4 should be LowCardinality(String), noted.
+User: minor follow-up 5 about schema field f5.
+Assistant: field f5 should be LowCardinality(String), noted.
+User: minor follow-up 6 about schema field f6.
+Assistant: field f6 should be LowCardinality(String), noted.
+User: minor follow-up 7 about schema field f7.
+Assistant: field f7 should be LowCardinality(String), noted.
+User: minor follow-up 8 about schema field f8.
+Assistant: field f8 should be LowCardinality(String), noted.
+User: minor follow-up 9 about schema field f9.
+Assistant: field f9 should be LowCardinality(String), noted.
+User: minor follow-up 10 about schema field f10.
+Assistant: field f10 should be LowCardinality(String), noted.
+User: minor follow-up 11 about schema field f11.
+Assistant: field f11 should be LowCardinality(String), noted.
+User: minor follow-up 12 about schema field f12.
+Assistant: field f12 should be LowCardinality(String), noted.
+User: minor follow-up 13 about schema field f13.
+Assistant: field f13 should be LowCardinality(String), noted.
+User: minor follow-up 14 about schema field f14.
+Assistant: field f14 should be LowCardinality(String), noted.
+User: minor follow-up 15 about schema field f15.
+Assistant: field f15 should be LowCardinality(String), noted.
+User: minor follow-up 16 about schema field f16.
+Assistant: field f16 should be LowCardinality(String), noted.
+User: minor follow-up 17 about schema field f17.
+Assistant: field f17 should be LowCardinality(String), noted.
+User: minor follow-up 18 about schema field f18.
+Assistant: field f18 should be LowCardinality(String), noted.
+User: minor follow-up 19 about schema field f19.
+Assistant: field f19 should be LowCardinality(String), noted.
+User: what did we decide for the datastore and the partition key?
+Assistant: Decided: ClickHouse, partitioned by toYYYYMM(event_time), ORDER BY (tenant_id, event_time).

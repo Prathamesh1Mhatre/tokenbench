@@ -1,0 +1,66 @@
+{
+  "tool": "toon",
+  "kind": "library",
+  "notes": "JSON\u2192TOON re-serialization (real npm impl; the PyPI port is a stub); lossless, structured only",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "reduction_mean": 56.4,
+      "reduction_std": 0.0,
+      "latency_ms": 78,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100,
+        "aggregate": 0
+      }
+    },
+    {
+      "content": "code",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "logs",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100
+      }
+    },
+    {
+      "content": "prose",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    }
+  ]
+}

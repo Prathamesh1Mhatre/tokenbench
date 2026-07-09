@@ -1,0 +1,92 @@
+[
+  {
+    "content": "json_data",
+    "variant": "control",
+    "correct": true,
+    "answer": "u42@acme.io"
+  },
+  {
+    "content": "json_data",
+    "variant": "headroom",
+    "correct": true,
+    "answer": "u42@acme.io"
+  },
+  {
+    "content": "json_data",
+    "variant": "llmlingua2",
+    "correct": false,
+    "answer": "u42@acme."
+  },
+  {
+    "content": "source_code",
+    "variant": "control",
+    "correct": true,
+    "answer": "3600"
+  },
+  {
+    "content": "source_code",
+    "variant": "headroom",
+    "correct": true,
+    "answer": "3600"
+  },
+  {
+    "content": "source_code",
+    "variant": "llmlingua2",
+    "correct": true,
+    "answer": "3600"
+  },
+  {
+    "content": "logs_trace",
+    "variant": "control",
+    "correct": true,
+    "answer": "Connection pool exhausted (max=32)."
+  },
+  {
+    "content": "logs_trace",
+    "variant": "headroom",
+    "correct": true,
+    "answer": "**Connection pool exhausted** \u2014 the worker ran out of available database connections (max=32) and couldn't acquire one w"
+  },
+  {
+    "content": "logs_trace",
+    "variant": "llmlingua2",
+    "correct": true,
+    "answer": "**Connection pool exhausted** \u2014 the service ran out of available database connections."
+  },
+  {
+    "content": "prose_doc",
+    "variant": "control",
+    "correct": true,
+    "answer": "v4.2.4"
+  },
+  {
+    "content": "prose_doc",
+    "variant": "headroom",
+    "correct": true,
+    "answer": "v4.2.4"
+  },
+  {
+    "content": "prose_doc",
+    "variant": "llmlingua2",
+    "correct": false,
+    "answer": "v4"
+  },
+  {
+    "content": "conversation",
+    "variant": "control",
+    "correct": true,
+    "answer": "ClickHouse"
+  },
+  {
+    "content": "conversation",
+    "variant": "headroom",
+    "correct": true,
+    "answer": "ClickHouse"
+  },
+  {
+    "content": "conversation",
+    "variant": "llmlingua2",
+    "correct": true,
+    "answer": "ClickHouse"
+  }
+]

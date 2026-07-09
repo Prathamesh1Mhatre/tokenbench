@@ -1,0 +1,137 @@
+[
+  {
+    "content": "json_data",
+    "tool": "baseline",
+    "in": 6562,
+    "out": 5602,
+    "reduction": 14.6,
+    "fidelity": 100,
+    "ms": 0
+  },
+  {
+    "content": "json_data",
+    "tool": "headroom",
+    "in": 6562,
+    "out": 2428,
+    "reduction": 63.0,
+    "fidelity": 100,
+    "ms": 175
+  },
+  {
+    "content": "json_data",
+    "tool": "llmlingua2",
+    "in": 6562,
+    "out": 3427,
+    "reduction": 47.8,
+    "fidelity": 33,
+    "ms": 15091
+  },
+  {
+    "content": "source_code",
+    "tool": "baseline",
+    "in": 1172,
+    "out": 1102,
+    "reduction": 6.0,
+    "fidelity": 100,
+    "ms": 0
+  },
+  {
+    "content": "source_code",
+    "tool": "headroom",
+    "in": 1172,
+    "out": 1172,
+    "reduction": 0.0,
+    "fidelity": 100,
+    "ms": 3
+  },
+  {
+    "content": "source_code",
+    "tool": "llmlingua2",
+    "in": 1172,
+    "out": 691,
+    "reduction": 41.0,
+    "fidelity": 100,
+    "ms": 636
+  },
+  {
+    "content": "logs_trace",
+    "tool": "baseline",
+    "in": 2564,
+    "out": 2562,
+    "reduction": 0.1,
+    "fidelity": 100,
+    "ms": 0
+  },
+  {
+    "content": "logs_trace",
+    "tool": "headroom",
+    "in": 2564,
+    "out": 2564,
+    "reduction": 0.0,
+    "fidelity": 100,
+    "ms": 0
+  },
+  {
+    "content": "logs_trace",
+    "tool": "llmlingua2",
+    "in": 2564,
+    "out": 1320,
+    "reduction": 48.5,
+    "fidelity": 33,
+    "ms": 1054
+  },
+  {
+    "content": "prose_doc",
+    "tool": "baseline",
+    "in": 381,
+    "out": 381,
+    "reduction": 0.0,
+    "fidelity": 100,
+    "ms": 0
+  },
+  {
+    "content": "prose_doc",
+    "tool": "headroom",
+    "in": 381,
+    "out": 381,
+    "reduction": 0.0,
+    "fidelity": 100,
+    "ms": 12
+  },
+  {
+    "content": "prose_doc",
+    "tool": "llmlingua2",
+    "in": 381,
+    "out": 201,
+    "reduction": 47.2,
+    "fidelity": 33,
+    "ms": 196
+  },
+  {
+    "content": "conversation",
+    "tool": "baseline",
+    "in": 612,
+    "out": 612,
+    "reduction": 0.0,
+    "fidelity": 100,
+    "ms": 0
+  },
+  {
+    "content": "conversation",
+    "tool": "headroom",
+    "in": 612,
+    "out": 612,
+    "reduction": 0.0,
+    "fidelity": 100,
+    "ms": 7
+  },
+  {
+    "content": "conversation",
+    "tool": "llmlingua2",
+    "in": 612,
+    "out": 366,
+    "reduction": 40.2,
+    "fidelity": 33,
+    "ms": 366
+  }
+]

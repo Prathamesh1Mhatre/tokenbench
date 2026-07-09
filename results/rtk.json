@@ -1,0 +1,66 @@
+{
+  "tool": "rtk",
+  "kind": "cli",
+  "notes": "rtk 0.42 CLI proxy (69k\u2605): rtk json / rtk log / rtk read, routed by content",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "reduction_mean": 98.8,
+      "reduction_std": 0.0,
+      "latency_ms": 9,
+      "errors": 0,
+      "survival": {
+        "extract": 0,
+        "filter": 0,
+        "multihop": 0,
+        "aggregate": 0
+      }
+    },
+    {
+      "content": "code",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 8,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "logs",
+      "reduction_mean": 75.0,
+      "reduction_std": 0.4,
+      "latency_ms": 9,
+      "errors": 0,
+      "survival": {
+        "extract": 55,
+        "filter": 20
+      }
+    },
+    {
+      "content": "prose",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 8,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 8,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+[
+  {
+    "content": "json",
+    "tool": "baseline",
+    "reduction_mean": 13.3,
+    "reduction_std": 0.0,
+    "latency_ms": 0,
+    "survival": {
+      "extract": 100,
+      "filter": 100,
+      "multihop": 100,
+      "aggregate": 100
+    }
+  },
+  {
+    "content": "json",
+    "tool": "headroom",
+    "reduction_mean": 57.9,
+    "reduction_std": 0.0,
+    "latency_ms": 19,
+    "survival": {
+      "extract": 100,
+      "filter": 100,
+      "multihop": 100,
+      "aggregate": 0
+    }
+  },
+  {
+    "content": "json",
+    "tool": "llmlingua@0.5",
+    "reduction_mean": 45.5,
+    "reduction_std": 0.4,
+    "latency_ms": 2762,
+    "survival": {
+      "extract": 50,
+      "filter": 55,
+      "multihop": 0,
+      "aggregate": 0
+    }
+  },
+  {
+    "content": "json",
+    "tool": "llmlingua@0.33",
+    "reduction_mean": 66.1,
+    "reduction_std": 0.1,
+    "latency_ms": 2057,
+    "survival": {
+      "extract": 38,
+      "filter": 0,
+      "multihop": 0,
+      "aggregate": 0
+    }
+  },
+  {
+    "content": "code",
+    "tool": "baseline",
+    "reduction_mean": 5.4,
+    "reduction_std": 0.0,
+    "latency_ms": 0,
+    "survival": {
+      "extract": 100,
+      "filter": 100,
+      "multihop": 100
+    }
+  },
+  {
+    "content": "code",
+    "tool": "headroom",
+    "reduction_mean": 0.0,
+    "reduction_std": 0.0,
+    "latency_ms": 2,
+    "survival": {
+      "extract": 100,
+      "filter": 100,
+      "multihop": 100
+    }
+  },
+  {
+    "content": "code",
+    "tool": "llmlingua@0.5",
+    "reduction_mean": 44.3,
+    "reduction_std": 0.4,
+    "latency_ms": 511,
+    "survival": {
+      "extract": 95,
+      "filter": 100,
+      "multihop": 10
+    }
+  },
+  {
+    "content": "code",
+    "tool": "llmlingua@0.33",
+    "reduction_mean": 62.4,
+    "reduction_std": 0.6,
+    "latency_ms": 491,
+    "survival": {
+      "extract": 0,
+      "filter": 100,
+      "multihop": 0
+    }
+  },
+  {
+    "content": "logs",
+    "tool": "baseline",
+    "reduction_mean": 0.0,
+    "reduction_std": 0.0,
+    "latency_ms": 0,
+    "survival": {
+      "extract": 100,
+      "filter": 100
+    }
+  },
+  {
+    "content": "logs",
+    "tool": "headroom",
+    "reduction_mean": 0.0,
+    "reduction_std": 0.0,
+    "latency_ms": 0,
+    "survival": {
+      "extract": 100,
+      "filter": 100
+    }
+  },
+  {
+    "content": "logs",
+    "tool": "llmlingua@0.5",
+    "reduction_mean": 53.5,
+    "reduction_std": 1.1,
+    "latency_ms": 786,
+    "survival": {
+      "extract": 8,
+      "filter": 90
+    }
+  },
+  {
+    "content": "logs",
+    "tool": "llmlingua@0.33",
+    "reduction_mean": 67.6,
+    "reduction_std": 0.9,
+    "latency_ms": 820,
+    "survival": {
+      "extract": 0,
+      "filter": 10
+    }
+  },
+  {
+    "content": "prose",
+    "tool": "baseline",
+    "reduction_mean": 0.0,
+    "reduction_std": 0.0,
+    "latency_ms": 0,
+    "survival": {
+      "extract": 100,
+      "multihop": 100
+    }
+  },
+  {
+    "content": "prose",
+    "tool": "headroom",
+    "reduction_mean": 0.0,
+    "reduction_std": 0.0,
+    "latency_ms": 0,
+    "survival": {
+      "extract": 100,
+      "multihop": 100
+    }
+  },
+  {
+    "content": "prose",
+    "tool": "llmlingua@0.5",
+    "reduction_mean": 46.8,
+    "reduction_std": 0.6,
+    "latency_ms": 206,
+    "survival": {
+      "extract": 50,
+      "multihop": 0
+    }
+  },
+  {
+    "content": "prose",
+    "tool": "llmlingua@0.33",
+    "reduction_mean": 67.1,
+    "reduction_std": 1.1,
+    "latency_ms": 238,
+    "survival": {
+      "extract": 50,
+      "multihop": 0
+    }
+  },
+  {
+    "content": "conversation",
+    "tool": "baseline",
+    "reduction_mean": 0.0,
+    "reduction_std": 0.0,
+    "latency_ms": 0,
+    "survival": {
+      "extract": 100,
+      "multihop": 100
+    }
+  },
+  {
+    "content": "conversation",
+    "tool": "headroom",
+    "reduction_mean": 0.0,
+    "reduction_std": 0.0,
+    "latency_ms": 5,
+    "survival": {
+      "extract": 100,
+      "multihop": 100
+    }
+  },
+  {
+    "content": "conversation",
+    "tool": "llmlingua@0.5",
+    "reduction_mean": 39.7,
+    "reduction_std": 0.2,
+    "latency_ms": 354,
+    "survival": {
+      "extract": 50,
+      "multihop": 100
+    }
+  },
+  {
+    "content": "conversation",
+    "tool": "llmlingua@0.33",
+    "reduction_mean": 58.8,
+    "reduction_std": 0.3,
+    "latency_ms": 353,
+    "survival": {
+      "extract": 50,
+      "multihop": 100
+    }
+  }
+]

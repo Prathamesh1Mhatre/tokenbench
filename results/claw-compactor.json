@@ -1,0 +1,66 @@
+{
+  "tool": "claw-compactor",
+  "kind": "library",
+  "notes": "14-stage deterministic Fusion Pipeline; samples long arrays (lossy for aggregates)",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "reduction_mean": 77.1,
+      "reduction_std": 0.0,
+      "latency_ms": 42,
+      "errors": 0,
+      "survival": {
+        "extract": 30,
+        "filter": 30,
+        "multihop": 30,
+        "aggregate": 31
+      }
+    },
+    {
+      "content": "code",
+      "reduction_mean": 6.1,
+      "reduction_std": 0.0,
+      "latency_ms": 3,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "logs",
+      "reduction_mean": 14.0,
+      "reduction_std": 0.0,
+      "latency_ms": 7,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100
+      }
+    },
+    {
+      "content": "prose",
+      "reduction_mean": 61.4,
+      "reduction_std": 0.0,
+      "latency_ms": 1,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": 8.1,
+      "reduction_std": 1.5,
+      "latency_ms": 10,
+      "errors": 0,
+      "survival": {
+        "extract": 80,
+        "multihop": 100
+      }
+    }
+  ]
+}

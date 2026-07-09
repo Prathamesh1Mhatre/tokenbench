@@ -1,0 +1,66 @@
+{
+  "tool": "baseline",
+  "kind": "text",
+  "notes": "whitespace/blank-line strip \u2014 the honesty floor",
+  "seeds": 3,
+  "results": [
+    {
+      "content": "json",
+      "reduction_mean": 13.3,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100,
+        "aggregate": 100
+      }
+    },
+    {
+      "content": "code",
+      "reduction_mean": 5.4,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "logs",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100
+      }
+    },
+    {
+      "content": "prose",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": 0.0,
+      "reduction_std": 0.0,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    }
+  ]
+}
