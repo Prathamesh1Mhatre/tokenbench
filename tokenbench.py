@@ -34,8 +34,16 @@ def run_tool(name, fn, n_seeds):
                 t0 = time.time(); out = fn(text); ms = (time.time() - t0) * 1000
             except Exception:
                 errs += 1; continue
-            reds.append((inT - T(out)) / inT * 100); lats.append(ms)
-            for c, r in survival(out, needles).items():
+            # adapters may return {"text": str, "tokens_out": int} when the
+            # payload isn't plain text (e.g. image transports): tokens_out
+            # drives reduction; text (factsheet etc.) drives needle survival.
+            if isinstance(out, dict):
+                outT = out.get("tokens_out", T(out.get("text", "")))
+                out_text = out.get("text", "")
+            else:
+                outT = T(out); out_text = out
+            reds.append((inT - outT) / inT * 100); lats.append(ms)
+            for c, r in survival(out_text, needles).items():
                 catsurv.setdefault(c, []).append(r * 100)
         if not reds:
             recs.append({"content": cname, "error": f"all {n_seeds} runs failed"}); continue

@@ -243,5 +243,69 @@
       "ms": 746
     }
   },
+  "pxpipe": {
+    "json": {
+      "red": 84.9,
+      "fid": 0,
+      "agg": 0,
+      "ms": 239
+    },
+    "code": {
+      "red": 76.4,
+      "fid": 0,
+      "agg": null,
+      "ms": 223
+    },
+    "logs": {
+      "red": 86.0,
+      "fid": 0,
+      "agg": null,
+      "ms": 229
+    },
+    "prose": {
+      "red": 67.6,
+      "fid": 0,
+      "agg": null,
+      "ms": 224
+    },
+    "conversation": {
+      "red": 72.0,
+      "fid": 0,
+      "agg": null,
+      "ms": 223
+    }
+  },
+  "lean-ctx": {
+    "json": {
+      "red": -4.8,
+      "fid": 100,
+      "agg": 100,
+      "ms": 84
+    },
+    "code": {
+      "red": 2.4,
+      "fid": 0,
+      "agg": null,
+      "ms": 54
+    },
+    "logs": {
+      "red": -14.6,
+      "fid": 100,
+      "agg": null,
+      "ms": 56
+    },
+    "prose": {
+      "red": -123.6,
+      "fid": 100,
+      "agg": null,
+      "ms": 45
+    },
+    "conversation": {
+      "red": -64.8,
+      "fid": 100,
+      "agg": null,
+      "ms": 46
+    }
+  },
   "prompt-optimizer": {}
 }

@@ -60,8 +60,8 @@ charts. Headline (measured 2026-07, macOS arm64, N=20):
 | claw-compactor | prose | 61% | 100% (but samples arrays: json fidelity 40%) |
 | rtk | json/logs | 99% / 75% | **0%** / ~40% (summary, not compression) |
 | llmlingua-2 @0.5 | logs | 53% | 8% extract |
-| lean-ctx (MCP) | code | 70% (real repo file) | signatures 100%, bodies dropped |
-| pxpipe (proxy) | session | 25% raw / 46% billed | OCR-dependent |
+| lean-ctx (MCP) | code | 70% (real repo file); negative on small non-code files | signatures 100%, bodies dropped |
+| pxpipe (export/proxy) | all lanes / session | 67–86% vision-est / 46% billed (50-turn) | factsheet-only as text; rest OCR |
 
 The single biggest lesson: **reduction% without a fidelity column is
 marketing.** Tools that "win" on size routinely return summaries or samples —

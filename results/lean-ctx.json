@@ -1,0 +1,66 @@
+{
+  "tool": "lean-ctx",
+  "kind": "mcp",
+  "notes": "MCP read-layer (ctx_read mode=aggressive) \u2014 measures what an agent actually receives",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "reduction_mean": -4.8,
+      "reduction_std": 2.4,
+      "latency_ms": 84,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100,
+        "multihop": 100,
+        "aggregate": 100
+      }
+    },
+    {
+      "content": "code",
+      "reduction_mean": 2.4,
+      "reduction_std": 20.9,
+      "latency_ms": 54,
+      "errors": 0,
+      "survival": {
+        "extract": 0,
+        "filter": 100,
+        "multihop": 0
+      }
+    },
+    {
+      "content": "logs",
+      "reduction_mean": -14.6,
+      "reduction_std": 15.9,
+      "latency_ms": 56,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "filter": 100
+      }
+    },
+    {
+      "content": "prose",
+      "reduction_mean": -123.6,
+      "reduction_std": 137.5,
+      "latency_ms": 45,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": -64.8,
+      "reduction_std": 80.2,
+      "latency_ms": 46,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 100
+      }
+    }
+  ]
+}

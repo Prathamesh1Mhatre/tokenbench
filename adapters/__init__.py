@@ -91,6 +91,71 @@ def promptopt(t: str) -> str:
         _PO = EntropyOptim(p=0.1)
     return _PO(t)
 
+@adapter("pxpipe", "image-transport", "renders text to PNG pages; reduction = vision-token estimate; fidelity = factsheet text (exact values kept as text; rest is image/OCR)")
+def pxpipe_export(t: str):
+    import subprocess, os, glob, tempfile
+    node = os.path.expanduser("~/.local/share/mise/installs/node/18.20.8/bin/node")
+    cli = os.path.expanduser("~/.pxpipe/app/node_modules/pxpipe-proxy/bin/cli.js")
+    with tempfile.TemporaryDirectory() as td:
+        p = subprocess.run([node, cli, "export", "--stdin", "--json", "--out", td],
+                           input=t, capture_output=True, text=True, timeout=120)
+        rep = json.loads(p.stdout)
+        img_tokens = rep.get("imageTokens") or rep.get("image_tokens")
+        # fidelity text = factsheet (verbatim precision values) + prompt scaffold
+        side = ""
+        for d in glob.glob(os.path.join(td, "pxpipe-export-*")):
+            for fn in ("factsheet.txt", "prompt.txt"):
+                fp = os.path.join(d, fn)
+                if os.path.exists(fp):
+                    side += open(fp).read() + "\n"
+        return {"text": side, "tokens_out": int(img_tokens)}
+
+_LEAN = None
+@adapter("lean-ctx", "mcp", "MCP read-layer (ctx_read mode=aggressive) — measures what an agent actually receives")
+def leanctx_read(t: str) -> str:
+    import subprocess, os, uuid
+    global _LEAN
+    root = os.path.expanduser("~/tokenopt-bench")
+    tmpdir = os.path.join(root, ".tmp"); os.makedirs(tmpdir, exist_ok=True)
+    s = t.lstrip()
+    ext = ".json" if s.startswith(("{", "[")) else (".py" if ("def " in t or "import " in t) else (".log" if "[INFO]" in t or "[ERROR]" in t else ".md"))
+    path = os.path.join(tmpdir, f"n{uuid.uuid4().hex[:8]}{ext}")
+    open(path, "w").write(t)
+    try:
+        if _LEAN is None:
+            _LEAN = subprocess.Popen(["lean-ctx"], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                     stderr=subprocess.DEVNULL, text=True, cwd=root, bufsize=1)
+            _rpc(_LEAN, {"jsonrpc": "2.0", "id": 0, "method": "initialize",
+                         "params": {"protocolVersion": "2024-11-05",
+                                    "capabilities": {}, "clientInfo": {"name": "tokenbench", "version": "1.0"}}})
+            _LEAN.stdin.write(json.dumps({"jsonrpc": "2.0", "method": "notifications/initialized"}) + "\n"); _LEAN.stdin.flush()
+        res = _rpc(_LEAN, {"jsonrpc": "2.0", "id": 1, "method": "tools/call",
+                           "params": {"name": "ctx_read",
+                                      "arguments": {"path": path, "mode": "aggressive", "fresh": True}}})
+        parts = res.get("result", {}).get("content", [])
+        out = "\n".join(c.get("text", "") for c in parts if c.get("type") == "text")
+        return out if out.strip() else t
+    finally:
+        os.unlink(path)
+
+def _rpc(proc, msg):
+    proc.stdin.write(json.dumps(msg) + "\n"); proc.stdin.flush()
+    if "id" not in msg:
+        return {}
+    while True:
+        line = proc.stdout.readline()
+        if not line:
+            raise RuntimeError("lean-ctx MCP closed")
+        line = line.strip()
+        if not line.startswith("{"):
+            continue
+        try:
+            d = json.loads(line)
+        except Exception:
+            continue
+        if d.get("id") == msg["id"]:
+            return d
+
 @adapter("rtk", "cli", "rtk 0.42 CLI proxy (69k★): rtk json / rtk log / rtk read, routed by content")
 def rtk_cli(t: str) -> str:
     import subprocess, tempfile, os

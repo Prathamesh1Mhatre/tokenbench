@@ -1,0 +1,66 @@
+{
+  "tool": "pxpipe",
+  "kind": "image-transport",
+  "notes": "renders text to PNG pages; reduction = vision-token estimate; fidelity = factsheet text (exact values kept as text; rest is image/OCR)",
+  "seeds": 20,
+  "results": [
+    {
+      "content": "json",
+      "reduction_mean": 84.9,
+      "reduction_std": 0.2,
+      "latency_ms": 239,
+      "errors": 0,
+      "survival": {
+        "extract": 8,
+        "filter": 0,
+        "multihop": 8,
+        "aggregate": 0
+      }
+    },
+    {
+      "content": "code",
+      "reduction_mean": 76.4,
+      "reduction_std": 0.0,
+      "latency_ms": 223,
+      "errors": 0,
+      "survival": {
+        "extract": 0,
+        "filter": 0,
+        "multihop": 100
+      }
+    },
+    {
+      "content": "logs",
+      "reduction_mean": 86.0,
+      "reduction_std": 0.0,
+      "latency_ms": 229,
+      "errors": 0,
+      "survival": {
+        "extract": 0,
+        "filter": 0
+      }
+    },
+    {
+      "content": "prose",
+      "reduction_mean": 67.6,
+      "reduction_std": 0.2,
+      "latency_ms": 224,
+      "errors": 0,
+      "survival": {
+        "extract": 100,
+        "multihop": 0
+      }
+    },
+    {
+      "content": "conversation",
+      "reduction_mean": 72.0,
+      "reduction_std": 0.0,
+      "latency_ms": 223,
+      "errors": 0,
+      "survival": {
+        "extract": 0,
+        "multihop": 0
+      }
+    }
+  ]
+}

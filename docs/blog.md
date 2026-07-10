@@ -50,19 +50,25 @@ checks:
 
 Cell = reduction % / worst-case needle fidelity %.
 
-| lane | headroom | toon | claw-compactor | rtk | llmlingua@0.5 | llmlingua@0.33 | selective-context |
-|---|---|---|---|---|---|---|---|
-| json | **58 / 100** | **56 / 100** | 77 / 10 | 99 / 0 | 46 / 0 | 66 / 0 | err (ctx window) |
-| code | 0 / 100 | 0 / 100 | 6 / 100 | 0 / 100 | 44 / 10 | 62 / 0 | 25 / 100 |
-| logs | 0 / 100 | 0 / 100 | 14 / 100 | 75 / 20 | 54 / 8 | 68 / 0 | err (ctx window) |
-| prose | 0 / 100 | 0 / 100 | **61 / 100** | 0 / 100 | 47 / 0 | 67 / 0 | 24 / 15 |
-| conversation | 0 / 100 | 0 / 100 | 8 / 62 | 0 / 100 | 40 / 50 | 59 / 50 | 17 / 50 |
+| lane | headroom | toon | claw | rtk | lingua@0.5 | lingua@0.33 | sel-ctx | pxpipe* | lean-ctx* |
+|---|---|---|---|---|---|---|---|---|---|
+| json | **58 / 100** | **56 / 100** | 77 / 10 | 99 / 0 | 46 / 0 | 66 / 0 | err | 85 / 0 | −5 / 100 |
+| code | 0 / 100 | 0 / 100 | 6 / 100 | 0 / 100 | 44 / 10 | 62 / 0 | 25 / 100 | 76 / 0 | 2 / 0 |
+| logs | 0 / 100 | 0 / 100 | 14 / 100 | 75 / 20 | 54 / 8 | 68 / 0 | err | 86 / 0 | −15 / 100 |
+| prose | 0 / 100 | 0 / 100 | **61 / 100** | 0 / 100 | 47 / 0 | 67 / 0 | 24 / 15 | 68 / 100 | −124 / 100 |
+| conversation | 0 / 100 | 0 / 100 | 8 / 62 | 0 / 100 | 40 / 50 | 59 / 50 | 17 / 50 | 72 / 0 | −65 / 100 |
 
-Outside the matrix (different modalities, measured separately):
-- **lean-ctx** (MCP read layer): **70%** on a real 514-line repo file — every
-  signature and import survives, function bodies collapse, retrievable.
-- **pxpipe** (image transport proxy): **−46% billed** over a real 50-turn
-  session on Anthropic's metered billing; no help on flat subscriptions.
+\* Two rows need reading with their modality in mind:
+- **pxpipe** (image transport, measured via its offline `export`): reduction
+  is a vision-token estimate; "fidelity" counts only values its factsheet
+  keeps as text — everything else is inside a PNG, recoverable only as well
+  as the model reads images. Its *proxy* mode was also measured live:
+  **−46% billed** across a real 50-turn session on metered Anthropic billing
+  (prompt-cache economics); no help on flat subscriptions.
+- **lean-ctx** (MCP read layer): negative numbers are real — on small
+  non-code files its wrapper overhead exceeds savings. Its win is real code:
+  **70% on a real 514-line repo file** with every signature/import kept and
+  bodies retrievable. Synthetic small-file corpora undersell read-layer tools.
 - Downstream LLM check (sampled): headroom-compressed context answered **5/5**
   exact-value questions; llmlingua@0.5 answered **3/5** (`u42@acme.io` →
   `u42@acme.`, `v4.2.4` → `v4`).
@@ -99,6 +105,13 @@ navigation view (bodies dropped, retrievable), not a compressor.
 **6. Old research baselines have aged out.** Selective Context (EMNLP'23)
 can't even ingest our JSON/log lanes (GPT-2's 1,024-token window) and breaks
 prose values at 24% reduction. The field moved to structure-awareness.
+
+**7. Modality changes what the numbers mean.** pxpipe posts the biggest
+reductions in the matrix (67–86% everywhere) — but as *images*: exact values
+survive only via its text factsheet or the model's OCR. And lean-ctx, a
+read-layer MCP, goes *negative* on small files while delivering 70% on real
+repo code. Neither is wrong; both prove you can't compare a transport, a
+read layer, and a library on one number without saying what was measured.
 
 ## What we'd actually deploy
 
