@@ -61,6 +61,18 @@
         "extract": 100,
         "multihop": 100
       }
+    },
+    {
+      "content": "real_code",
+      "reduction_mean": 10.0,
+      "reduction_std": 0.7,
+      "latency_ms": 0,
+      "errors": 0,
+      "survival": {
+        "extract": 92,
+        "filter": 100,
+        "multihop": 100
+      }
     }
   ]
 }

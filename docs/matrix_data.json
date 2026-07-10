@@ -29,6 +29,12 @@
       "fid": 100,
       "agg": null,
       "ms": 0
+    },
+    "real_code": {
+      "red": 10.0,
+      "fid": 92,
+      "agg": null,
+      "ms": 0
     }
   },
   "headroom": {
@@ -61,6 +67,12 @@
       "fid": 100,
       "agg": null,
       "ms": 55
+    },
+    "real_code": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 7
     }
   },
   "toon": {
@@ -89,6 +101,12 @@
       "ms": 0
     },
     "conversation": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 0
+    },
+    "real_code": {
       "red": 0.0,
       "fid": 100,
       "agg": null,
@@ -125,6 +143,12 @@
       "fid": 62,
       "agg": null,
       "ms": 11
+    },
+    "real_code": {
+      "red": 23.1,
+      "fid": 85,
+      "agg": null,
+      "ms": 101
     }
   },
   "rtk": {
@@ -157,6 +181,12 @@
       "fid": 100,
       "agg": null,
       "ms": 15
+    },
+    "real_code": {
+      "red": 0.0,
+      "fid": 100,
+      "agg": null,
+      "ms": 11
     }
   },
   "llmlingua@0.5": {
@@ -189,6 +219,12 @@
       "fid": 50,
       "agg": null,
       "ms": 322
+    },
+    "real_code": {
+      "red": 48.7,
+      "fid": 15,
+      "agg": null,
+      "ms": 3453
     }
   },
   "llmlingua@0.33": {
@@ -221,6 +257,12 @@
       "fid": 50,
       "agg": null,
       "ms": 316
+    },
+    "real_code": {
+      "red": 66.6,
+      "fid": 0,
+      "agg": null,
+      "ms": 3076
     }
   },
   "selective-context": {
@@ -241,6 +283,12 @@
       "fid": 50,
       "agg": null,
       "ms": 746
+    },
+    "real_code": {
+      "red": 36.2,
+      "fid": 38,
+      "agg": null,
+      "ms": 3674
     }
   },
   "pxpipe": {
@@ -273,6 +321,12 @@
       "fid": 0,
       "agg": null,
       "ms": 223
+    },
+    "real_code": {
+      "red": 73.1,
+      "fid": 0,
+      "agg": null,
+      "ms": 345
     }
   },
   "lean-ctx": {
@@ -305,6 +359,12 @@
       "fid": 100,
       "agg": null,
       "ms": 46
+    },
+    "real_code": {
+      "red": 73.5,
+      "fid": 0,
+      "agg": null,
+      "ms": 111
     }
   },
   "prompt-optimizer": {}

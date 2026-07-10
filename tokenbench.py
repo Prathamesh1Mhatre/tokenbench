@@ -22,9 +22,11 @@ def survival(out, needles):
         cats.setdefault(cat, []).append(val)
     return {c: sum(1 for v in vs if v in out) / len(vs) for c, vs in cats.items()}
 
-def run_tool(name, fn, n_seeds):
+def run_tool(name, fn, n_seeds, lanes=None):
     recs = []
     for cname, gen in CONTENTS.items():
+        if lanes and cname not in lanes:
+            continue
         reds, lats, catsurv = [], [], {}
         errs = 0
         for seed in range(n_seeds):
@@ -61,6 +63,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tools", default="all")
     ap.add_argument("--seeds", type=int, default=int(os.environ.get("N_SEEDS", "20")))
+    ap.add_argument("--lanes", default=None, help="comma-separated lane filter")
     args = ap.parse_args()
     names = list(ADAPTERS) if args.tools == "all" else [t.strip() for t in args.tools.split(",")]
     os.makedirs("results", exist_ok=True)
@@ -69,15 +72,19 @@ def main():
             print(f"!! unknown adapter: {name} (have: {list(ADAPTERS)})"); continue
         meta = ADAPTERS[name]
         print(f"== {name} ({meta['kind']}) N={args.seeds}")
-        recs = run_tool(name, meta["fn"], args.seeds)
+        recs = run_tool(name, meta["fn"], args.seeds, lanes=args.lanes.split(",") if args.lanes else None)
         for r in recs:
             if "error" in r:
                 print(f"   {r['content']:<13} ERROR: {r['error']}"); continue
             surv = " ".join(f"{c}={v}%" for c, v in sorted(r["survival"].items()))
             print(f"   {r['content']:<13} red={r['reduction_mean']:>5}%±{r['reduction_std']:<4} {r['latency_ms']:>6}ms  {surv}")
+        path = os.path.join("results", f"{name.replace('/','_').replace('@','_at_')}.json")
         out = {"tool": name, "kind": meta["kind"], "notes": meta["notes"],
                "seeds": args.seeds, "results": recs}
-        path = os.path.join("results", f"{name.replace('/','_').replace('@','_at_')}.json")
+        if args.lanes and os.path.exists(path):
+            prev = json.load(open(path))
+            keep = [r for r in prev.get("results", []) if r.get("content") not in args.lanes.split(",")]
+            out["results"] = keep + recs
         json.dump(out, open(path, "w"), indent=2)
         print(f"   -> {path}")
 

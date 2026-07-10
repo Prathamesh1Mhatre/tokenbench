@@ -58,6 +58,13 @@ Cell = reduction % / worst-case needle fidelity %.
 | prose | 0 / 100 | 0 / 100 | **61 / 100** | 0 / 100 | 47 / 0 | 67 / 0 | 24 / 15 | 68 / 100 | −124 / 100 |
 | conversation | 0 / 100 | 0 / 100 | 8 / 62 | 0 / 100 | 40 / 50 | 59 / 50 | 17 / 50 | 72 / 0 | −65 / 100 |
 
+**Real-repo lane** (20 real Python stdlib files, 12–15k tokens, needles
+auto-extracted from the actual source): lean-ctx **73.5%** (names 100%,
+mid-body constants 0%), pxpipe 73% (image), llmlingua@0.5 49% (fid 15%),
+selective-context 36%, claw 23%, headroom/toon/rtk 0% (protect/passthrough
+confirmed on real code). The synthetic code lane underrated lean-ctx by 35x —
+real corpora are now a permanent lane.
+
 \* Two rows need reading with their modality in mind:
 - **pxpipe** (image transport, measured via its offline `export`): reduction
   is a vision-token estimate; "fidelity" counts only values its factsheet
@@ -142,6 +149,25 @@ def mytool(text: str) -> str:
 
 Run `python tokenbench.py --tools mytool` and you get the same matrix,
 committed to `results/`. PRs welcome — measured numbers only.
+
+
+## Claims vs measurements
+
+| tool | headline claim | measured | verdict |
+|---|---|---|---|
+| headroom | 60–95% (JSON), 15–20% (agents) | 58% JSON @100% fid; 38% real session | aligned |
+| toon | 30–60% vs JSON | 56% @100% fid (npm impl; PyPI port is a stub) | aligned |
+| rtk | 60–90% on dev commands | logs 75%; JSON "99%" is a schema summary (fid 0) | aligned only as intended |
+| claw-compactor | 15–82%, "quality preserved" | JSON 77% but fid 10% (samples rows) | reduction yes, quality claim no |
+| LLMLingua-2 | 20x, "minimal loss" | 46–68%; exact-value fid 0–50%; 60% downstream accuracy | misaligned for agent work |
+| selective-context | ~2x at ~5% cost | 17–36%; can't ingest >1,024 tok | aged out |
+| lean-ctx | big read savings | 73.5% real code; NEGATIVE on small non-code files | aligned on code, silent downside |
+| pxpipe | reload ~73% cheaper | measured warm −46% billed; honest own dashboard | directionally aligned, overstated |
+| prompt-optimizer | reduction, minimal loss | broken on transformers 5.x | dead |
+| twotrim | "robust middleware" | empty modules on PyPI | vaporware |
+
+Nobody lies about the percentage — they omit the denominator: fidelity, or
+the lane where they lose. That omission is the reason this benchmark exists.
 
 ## Methodology notes (the honest fine print)
 

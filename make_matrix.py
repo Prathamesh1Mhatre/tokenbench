@@ -5,7 +5,7 @@ import json, glob, os
 ORDER = ["baseline", "headroom", "toon", "claw-compactor", "rtk",
          "llmlingua@0.5", "llmlingua@0.33", "selective-context",
          "pxpipe", "lean-ctx"]
-LANES = ["json", "code", "logs", "prose", "conversation"]
+LANES = ["json", "code", "real_code", "logs", "prose", "conversation"]
 
 def fid(surv):
     """worst-case exact-value survival across task types (aggregate excluded on

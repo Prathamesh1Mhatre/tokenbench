@@ -85,7 +85,37 @@ def gen_conversation(seed):
     needles=[("extract",ds),("extract",pk),("multihop",ds)]
     return txt,needles
 
-CONTENTS={"json":gen_json,"code":gen_code,"logs":gen_logs,"prose":gen_prose,"conversation":gen_conversation}
+def gen_real_code(seed):
+    """REAL code lane: Python stdlib sources (reproducible, publishable, on every
+    machine). Needles auto-extracted from the actual file: a real constant line
+    (extract), a mid-file def/class name (filter), two distant defs (multihop)."""
+    import sysconfig, re, os
+    std = sysconfig.get_paths()["stdlib"]
+    FILES = ["argparse.py", "json/encoder.py", "json/decoder.py", "logging/__init__.py",
+             "http/client.py", "csv.py", "configparser.py", "difflib.py", "smtplib.py",
+             "uuid.py", "tarfile.py", "zipfile/__init__.py", "selectors.py", "queue.py",
+             "socketserver.py", "string/__init__.py", "textwrap.py", "traceback.py",
+             "calendar.py", "ipaddress.py"]
+    path = os.path.join(std, FILES[seed % len(FILES)])
+    if not os.path.exists(path):  # py-version layout differences
+        alt = path.replace("/__init__.py", ".py")
+        path = alt if os.path.exists(alt) else os.path.join(std, "argparse.py")
+    text = open(path, encoding="utf-8", errors="replace").read()[:60000]
+    needles = []
+    consts = re.findall(r"^([A-Z][A-Z0-9_]{3,} *= *.+)$", text, re.M)
+    if consts: needles.append(("extract", consts[len(consts)//2].strip()[:60]))
+    defs = re.findall(r"^(?:class|def) +(\w+)", text, re.M) + \
+           re.findall(r"^    def +(\w+)", text, re.M)
+    defs = [d for d in defs if not d.startswith("_")] or defs
+    if defs:
+        needles.append(("filter", defs[len(defs)//2]))
+        if len(defs) >= 4:
+            needles.append(("multihop", defs[1])); needles.append(("multihop", defs[-2]))
+    if not needles: needles = [("extract", text.splitlines()[0][:40])]
+    return text, needles
+
+CONTENTS={"json":gen_json,"code":gen_code,"logs":gen_logs,"prose":gen_prose,
+          "conversation":gen_conversation,"real_code":gen_real_code}
 
 # ---------------- tools ----------------
 def t_baseline(t): return re.sub(r'\n\s*\n+','\n',re.sub(r'[ \t]+',' ',t)).strip()
