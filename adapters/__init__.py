@@ -6,9 +6,21 @@ Register with @adapter(name, kind, notes). Tools that can't fit this shape
 measured with their own scripts.
 """
 from __future__ import annotations
-import json, re
+import json, os, re, shutil
+from pathlib import Path
 
 ADAPTERS: dict[str, dict] = {}
+
+
+class AdapterUnavailable(RuntimeError):
+    """Raised when an optional tool is not installed or cannot be invoked."""
+
+
+def configured_executable(env_var: str, command: str) -> str:
+    executable = os.environ.get(env_var) or shutil.which(command)
+    if not executable:
+        raise AdapterUnavailable(f"{command} is unavailable; set {env_var} or add {command} to PATH")
+    return executable
 
 def adapter(name: str, kind: str = "library", notes: str = ""):
     def reg(fn):
@@ -66,11 +78,17 @@ def toon_enc(t: str) -> str:
         json.loads(t)
     except Exception:
         return t  # non-JSON: TOON does not apply
-    import subprocess, os
-    node = os.path.expanduser("~/.local/share/mise/installs/node/18.20.8/bin/node")
-    script = os.path.join(os.path.dirname(__file__), "..", "toon_cli", "encode.mjs")
+    import subprocess
+    node = configured_executable("TOKENBENCH_NODE", "node")
+    tool_dir = Path(__file__).resolve().parent.parent / "toon_cli"
+    script = tool_dir / "encode.mjs"
+    if not (tool_dir / "node_modules" / "@toon-format" / "toon").exists():
+        raise AdapterUnavailable("TOON package is missing; run `npm ci --prefix toon_cli`")
     p = subprocess.run([node, script], input=t, capture_output=True, text=True, timeout=60)
-    return p.stdout if p.returncode == 0 and p.stdout else t
+    if p.returncode != 0 or not p.stdout:
+        detail = (p.stderr or "TOON produced no output").strip()
+        raise AdapterUnavailable(f"TOON encoder failed: {detail}")
+    return p.stdout
 
 _SC = None
 @adapter("selective-context", "library", "self-information pruning via local GPT-2 (EMNLP'23 baseline)")
@@ -93,14 +111,20 @@ def promptopt(t: str) -> str:
 
 @adapter("pxpipe", "image-transport", "renders text to PNG pages; reduction = vision-token estimate; fidelity = factsheet text (exact values kept as text; rest is image/OCR)")
 def pxpipe_export(t: str):
-    import subprocess, os, glob, tempfile
-    node = os.path.expanduser("~/.local/share/mise/installs/node/18.20.8/bin/node")
-    cli = os.path.expanduser("~/.pxpipe/app/node_modules/pxpipe-proxy/bin/cli.js")
+    import subprocess, glob, tempfile
+    node = configured_executable("TOKENBENCH_NODE", "node")
+    cli = os.environ.get("TOKENBENCH_PXPIPE_CLI")
+    if not cli or not os.path.exists(cli):
+        raise AdapterUnavailable("pxpipe CLI is unavailable; set TOKENBENCH_PXPIPE_CLI to its cli.js path")
     with tempfile.TemporaryDirectory() as td:
         p = subprocess.run([node, cli, "export", "--stdin", "--json", "--out", td],
                            input=t, capture_output=True, text=True, timeout=120)
+        if p.returncode != 0:
+            raise AdapterUnavailable(f"pxpipe export failed: {(p.stderr or p.stdout).strip()}")
         rep = json.loads(p.stdout)
         img_tokens = rep.get("imageTokens") or rep.get("image_tokens")
+        if img_tokens is None:
+            raise AdapterUnavailable("pxpipe export did not report image token usage")
         # fidelity text = factsheet (verbatim precision values) + prompt scaffold
         side = ""
         for d in glob.glob(os.path.join(td, "pxpipe-export-*")):
@@ -113,9 +137,9 @@ def pxpipe_export(t: str):
 _LEAN = None
 @adapter("lean-ctx", "mcp", "MCP read-layer (ctx_read mode=aggressive) — measures what an agent actually receives")
 def leanctx_read(t: str) -> str:
-    import subprocess, os, uuid
+    import subprocess, uuid
     global _LEAN
-    root = os.path.expanduser("~/tokenopt-bench")
+    root = os.path.abspath(os.environ.get("TOKENBENCH_LEAN_CTX_ROOT", os.getcwd()))
     tmpdir = os.path.join(root, ".tmp"); os.makedirs(tmpdir, exist_ok=True)
     s = t.lstrip()
     ext = ".json" if s.startswith(("{", "[")) else (".py" if ("def " in t or "import " in t) else (".log" if "[INFO]" in t or "[ERROR]" in t else ".md"))
@@ -170,7 +194,9 @@ def rtk_cli(t: str) -> str:
         f.write(t); path = f.name
     try:
         p = subprocess.run(["rtk", sub, path], capture_output=True, text=True, timeout=60)
-        out = p.stdout
-        return out if p.returncode == 0 and out.strip() else t
+        if p.returncode != 0 or not p.stdout.strip():
+            detail = (p.stderr or p.stdout or "rtk produced no output").strip()
+            raise AdapterUnavailable(f"rtk failed: {detail}")
+        return p.stdout
     finally:
         os.unlink(path)

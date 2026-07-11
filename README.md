@@ -28,12 +28,46 @@ mean ± std, not one lucky sample.
 
 ```bash
 python3.12 -m venv venv && venv/bin/pip install -r requirements.txt
-venv/bin/python tokenbench.py                       # all adapters, N=20
-venv/bin/python tokenbench.py --tools headroom --seeds 5
+venv/bin/python tokenbench.py --tools baseline       # core-only smoke run
 ```
 
-Results land in `results/<tool>.json` — committed, so the repo is also the
-living scoreboard.
+`requirements.txt` installs only the runner and its whitespace baseline. Tools
+are optional because they have different model, CLI, and platform requirements.
+
+```bash
+# Install only the adapter(s) you want to measure.
+venv/bin/pip install headroom-ai==0.30.0
+venv/bin/pip install llmlingua==0.2.2
+venv/bin/pip install claw-compactor==7.1.0
+venv/bin/pip install selective-context==0.1.4
+
+# TOON also needs its checked-in Node package.
+npm ci --prefix toon_cli
+
+venv/bin/python tokenbench.py --tools headroom --seeds 5
+venv/bin/python tokenbench.py --tools toon --seeds 20 --lanes json
+```
+
+External adapters resolve executables from `PATH` or an explicit environment
+variable: set `TOKENBENCH_NODE` for TOON/pxpipe, `TOKENBENCH_PXPIPE_CLI` to the
+pxpipe `cli.js` path, and `TOKENBENCH_LEAN_CTX_ROOT` when lean-ctx needs a
+specific workspace. `rtk` is resolved from `PATH`.
+
+The `prompt-optimizer==0.2.1` package currently requires `tiktoken<0.4`, which
+cannot coexist with the runner's `tiktoken==0.13.0`; its adapter is retained for
+historical results but is not part of the supported core environment.
+
+Missing tools are reported as `failed`, never as a successful zero-reduction
+run. A partially available tool is reported as `degraded` with successful runs,
+attempts, failures, and an error summary. Use `--output-dir` to avoid replacing
+the committed scoreboard while experimenting:
+
+```bash
+venv/bin/python tokenbench.py --tools baseline --seeds 5 --output-dir /tmp/tokenbench-results
+```
+
+Results land in `results/<tool>.json` by default — committed, so the repo is
+also the living scoreboard.
 
 ## Add a tool (one function)
 
