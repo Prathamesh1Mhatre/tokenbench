@@ -14,6 +14,18 @@ def fid(surv):
     return min(surv[k] for k in keys) if keys else None
 
 
+VERDICTS = {
+    "headroom":         ("✅ use", "JSON/tool outputs: lossless, reversible; refuses code (safe)"),
+    "toon":             ("✅ use", "lossless by construction; only where you control JSON serialization"),
+    "lean-ctx":         ("✅ use for code navigation", "names/signatures 100% + retrievable; the 0% is mid-body constants — don't use for exact-logic reads, skip non-code (negative)"),
+    "claw-compactor":   ("⚠️ prose only", "61%/100% on prose; NOT JSON — silently samples 20 of 80 rows (fid 10%)"),
+    "pxpipe":           ("⚠️ metered sessions only", "−46% billed live on Anthropic metered; values ride inside images (OCR risk); no gain on flat subscriptions"),
+    "llmlingua@0.5":    ("❌ not for agent context", "drops sub-tokens inside exact values (v4.2.4→v4); 60% downstream accuracy"),
+    "llmlingua@0.33":   ("❌ not recommended", "destroys exact values (fid ~0%) at every lane"),
+    "selective-context":("❌ not recommended", "2023 method; chokes on >1,024 tokens; breaks values"),
+    "rtk":              ("❌ not as agent context", "the 99% is a schema SUMMARY — the data is deleted; great as an interactive human CLI, never as blind context"),
+}
+
 def readme_scoreboard(tools, names):
     """Regenerate the README scoreboard between markers from canonical results."""
     best = []
@@ -23,9 +35,11 @@ def readme_scoreboard(tools, names):
         if not rows: continue
         top = max(rows, key=lambda r: r["reduction_mean"])
         f = fid(top["survival"])
-        best.append(f"| {n} | {top['content']} | {top['reduction_mean']:.0f}% | worst-case {f:.0f}% |")
-    table = ("| tool | best lane | reduction | needle fidelity there |\n|---|---|---|---|\n"
-             + "\n".join(best))
+        v, why = VERDICTS.get(n, ("—", ""))
+        best.append(f"| {n} | {top['content']} | {top['reduction_mean']:.0f}% | {f:.0f}% | {v} — {why} |")
+    table = ("| tool | best lane | reduction | worst-case fidelity | verdict — why |\n|---|---|---|---|---|\n"
+             + "\n".join(best)
+             + "\n\n> Read reduction and fidelity **together**: a huge reduction at 0% fidelity means the data is gone, not compressed.")
     try:
         rd = open("README.md").read()
         b, e = "<!-- SCOREBOARD:BEGIN -->", "<!-- SCOREBOARD:END -->"
