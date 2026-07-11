@@ -3,7 +3,7 @@
 ## lean-ctx (MCP read-layer, yvgude/lean-ctx)
 Compresses at the *read* layer (`ctx_read`), not `compress(text)`. Spot-measured
 via MCP on this machine:
-- real repo Python file (514 lines / 4,140 tok): **70% reduction**; every
+- real repo Python file (514 lines / 4,140 tok, spot N=1): **70% reduction** — confirmed at **73.5%** by the N=20 real_code stdlib lane; every
   import/signature/docstring survives, function bodies collapse to `// ...`,
   originals retrievable (`ctx_expand`).
 - synthetic code corpus: 47% reduction, exact-constant fidelity 33%.

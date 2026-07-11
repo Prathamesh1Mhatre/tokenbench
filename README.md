@@ -53,15 +53,21 @@ MCP-only) are documented in `docs/non-batchable.md` with their own scripts.
 See `results/` for raw JSON and `docs/blog.md` for the full write-up with
 charts. Headline (measured 2026-07, macOS arm64, N=20):
 
-| tool | best lane | reduction | fidelity there |
+<!-- SCOREBOARD:BEGIN -->
+| tool | best lane | reduction | needle fidelity there |
 |---|---|---|---|
-| headroom | json | 58% | **100%** |
-| toon | json | (structured re-encoding) | lossless by design |
-| claw-compactor | prose | 61% | 100% (but samples arrays: json fidelity 40%) |
-| rtk | json/logs | 99% / 75% | **0%** / ~40% (summary, not compression) |
-| llmlingua-2 @0.5 | logs | 53% | 8% extract |
-| lean-ctx (MCP) | code | 70% (real repo file); negative on small non-code files | signatures 100%, bodies dropped |
-| pxpipe (export/proxy) | all lanes / session | 67–86% vision-est / 46% billed (50-turn) | factsheet-only as text; rest OCR |
+| headroom | json | 58% | worst-case 100% |
+| toon | json | 56% | worst-case 100% |
+| claw-compactor | json | 77% | worst-case 10% |
+| rtk | json | 99% | worst-case 0% |
+| llmlingua@0.5 | logs | 54% | worst-case 8% |
+| llmlingua@0.33 | logs | 68% | worst-case 0% |
+| selective-context | real_code | 36% | worst-case 38% |
+| pxpipe | logs | 86% | worst-case 0% |
+| lean-ctx | real_code | 74% | worst-case 0% |
+<!-- SCOREBOARD:END -->
+
+Full per-lane matrix: [docs/matrix.md](docs/matrix.md) (generated). Raw: [results/](results/).
 
 The single biggest lesson: **reduction% without a fidelity column is
 marketing.** Tools that "win" on size routinely return summaries or samples —

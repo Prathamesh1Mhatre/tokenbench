@@ -13,6 +13,29 @@ def fid(surv):
     keys = [k for k in surv if k != "aggregate"]
     return min(surv[k] for k in keys) if keys else None
 
+
+def readme_scoreboard(tools, names):
+    """Regenerate the README scoreboard between markers from canonical results."""
+    best = []
+    for n in names:
+        if n == "baseline": continue
+        rows = [r for r in tools[n]["results"] if "error" not in r]
+        if not rows: continue
+        top = max(rows, key=lambda r: r["reduction_mean"])
+        f = fid(top["survival"])
+        best.append(f"| {n} | {top['content']} | {top['reduction_mean']:.0f}% | worst-case {f:.0f}% |")
+    table = ("| tool | best lane | reduction | needle fidelity there |\n|---|---|---|---|\n"
+             + "\n".join(best))
+    try:
+        rd = open("README.md").read()
+        b, e = "<!-- SCOREBOARD:BEGIN -->", "<!-- SCOREBOARD:END -->"
+        if b in rd and e in rd:
+            pre = rd.split(b)[0]; post = rd.split(e)[1]
+            open("README.md","w").write(pre + b + "\n" + table + "\n" + e + post)
+            print("README scoreboard regenerated from results/")
+    except FileNotFoundError:
+        pass
+
 def main():
     tools = {}
     for f in glob.glob("results/*.json"):
@@ -46,6 +69,7 @@ def main():
                    for r in tools[n]["results"] if "error" not in r}
     os.makedirs("docs", exist_ok=True)
     open("docs/matrix.md", "w").write("\n".join(lines))
+    readme_scoreboard(tools, names)
     json.dump(blob, open("docs/matrix_data.json", "w"), indent=2)
     print("\n".join(lines))
 

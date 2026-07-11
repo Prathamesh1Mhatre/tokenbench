@@ -74,7 +74,8 @@ real corpora are now a permanent lane.
   (prompt-cache economics); no help on flat subscriptions.
 - **lean-ctx** (MCP read layer): negative numbers are real — on small
   non-code files its wrapper overhead exceeds savings. Its win is real code:
-  **70% on a real 514-line repo file** with every signature/import kept and
+  **73.5% across 20 real stdlib files (N=20)** — and 70% on a spot-test of a
+  real 514-line work repo file — with every signature/import kept and
   bodies retrievable. Synthetic small-file corpora undersell read-layer tools.
 - Downstream LLM check (sampled): headroom-compressed context answered **5/5**
   exact-value questions; llmlingua@0.5 answered **3/5** (`u42@acme.io` →
