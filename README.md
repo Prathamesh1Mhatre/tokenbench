@@ -93,7 +93,7 @@ charts. Headline (measured 2026-07, macOS arm64, N=20):
 | headroom | json | 58% | 100% | ✅ use — JSON/tool outputs: lossless, reversible; refuses code (safe) |
 | toon | json | 56% | 100% | ✅ use — lossless by construction; only where you control JSON serialization |
 | claw-compactor | json | 77% | 10% | ⚠️ prose only — 61%/100% on prose; NOT JSON — silently samples 20 of 80 rows (fid 10%) |
-| rtk | json | 99% | 0% | ❌ not as agent context — the 99% is a schema SUMMARY — the data is deleted; great as an interactive human CLI, never as blind context |
+| rtk | json | 99% | 0% | ⚠️ summary-by-design — its docs say it: json = structure WITHOUT values; full output saved to tee files for retrieval. Fine as designed; never blind-pipe data through it expecting values to survive |
 | llmlingua@0.5 | logs | 54% | 8% | ❌ not for agent context — drops sub-tokens inside exact values (v4.2.4→v4); 60% downstream accuracy |
 | llmlingua@0.33 | logs | 68% | 0% | ❌ not recommended — destroys exact values (fid ~0%) at every lane |
 | selective-context | real_code | 36% | 38% | ❌ not recommended — 2023 method; chokes on >1,024 tokens; breaks values |

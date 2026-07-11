@@ -23,7 +23,7 @@ VERDICTS = {
     "llmlingua@0.5":    ("❌ not for agent context", "drops sub-tokens inside exact values (v4.2.4→v4); 60% downstream accuracy"),
     "llmlingua@0.33":   ("❌ not recommended", "destroys exact values (fid ~0%) at every lane"),
     "selective-context":("❌ not recommended", "2023 method; chokes on >1,024 tokens; breaks values"),
-    "rtk":              ("❌ not as agent context", "the 99% is a schema SUMMARY — the data is deleted; great as an interactive human CLI, never as blind context"),
+    "rtk":              ("⚠️ summary-by-design", "its docs say it: json = structure WITHOUT values; full output saved to tee files for retrieval. Fine as designed; never blind-pipe data through it expecting values to survive"),
 }
 
 
