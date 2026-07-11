@@ -9,4 +9,4 @@
 | prose | 0% / fid 100% | 0% / fid 100% | 0% / fid 100% | 61% / fid 100% | 0% / fid 100% | 47% / fid 0% | 67% / fid 0% | 24% / fid 15% | 68% / fid 0% | -124% / fid 100% | ✗ err |
 | conversation | 0% / fid 100% | 0% / fid 100% | 0% / fid 100% | 8% / fid 62% | 0% / fid 100% | 40% / fid 50% | 59% / fid 50% | 17% / fid 50% | 72% / fid 0% | -65% / fid 100% | ✗ err |
 
-cell = reduction% / worst-case needle fidelity% (agg = aggregate-task survival)
+cell = reduction% / worst-case needle fidelity% (agg = aggregate-task survival; ⚠ = successful runs / attempts)

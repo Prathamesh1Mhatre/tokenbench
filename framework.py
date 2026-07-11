@@ -1,20 +1,11 @@
 #!/usr/bin/env python3
-"""Token-optimizer benchmark FRAMEWORK (Tier-1, offline).
+"""Generated benchmark corpus and needle definitions.
 
-Matrix: tools x content-types x task-types x ratios, run at N seeds -> mean +/- std.
-Metrics (offline, no LLM): reduction%, needle-survival (fidelity proxy for accuracy),
-structure-valid, latency. Writes framework_result.json for charting.
-Tier-2 (LLM accuracy) is a separate, budgeted pass (framework_accuracy.py).
-
-Extend by adding to CONTENTS (generator+needles) or TOOLS (compress fn).
+This module intentionally contains no adapter imports. The core baseline runner
+must work with only its core dependency installed; optional tools are loaded by
+their adapters at call time.
 """
-import time, json, os, re, random, statistics as stats
-import tiktoken
-enc = tiktoken.get_encoding("o200k_base")
-def T(s): return len(enc.encode(s))
-
-N_SEEDS = int(os.environ.get("N_SEEDS", "20"))
-
+import json, random
 # ---------------- content generators ----------------
 # each returns (text, needles) where needles = list of (task_category, value)
 # task categories: extract, aggregate, filter, multihop
@@ -116,53 +107,3 @@ def gen_real_code(seed):
 
 CONTENTS={"json":gen_json,"code":gen_code,"logs":gen_logs,"prose":gen_prose,
           "conversation":gen_conversation,"real_code":gen_real_code}
-
-# ---------------- tools ----------------
-def t_baseline(t): return re.sub(r'\n\s*\n+','\n',re.sub(r'[ \t]+',' ',t)).strip()
-
-import headroom
-def t_headroom(t):
-    r=headroom.compress([{"role":"tool","tool_call_id":"c","content":t}],model="claude-sonnet-4-5-20250929")
-    return "".join(m.get("content") if isinstance(m.get("content"),str) else json.dumps(m.get("content")) for m in (r.messages or []))
-
-_LL=None
-def _ll(rate):
-    def f(t):
-        global _LL
-        if _LL is None:
-            from llmlingua import PromptCompressor
-            _LL=PromptCompressor(model_name="microsoft/llmlingua-2-xlm-roberta-large-meetingbank",use_llmlingua2=True,device_map="cpu")
-        return _LL.compress_prompt(t,rate=rate,force_tokens=['\n','.',':',',','('])['compressed_prompt']
-    return f
-
-TOOLS={"baseline":t_baseline,"headroom":t_headroom,"llmlingua@0.5":_ll(0.5),"llmlingua@0.33":_ll(0.33)}
-
-# ---------------- run ----------------
-def survival(out, needles):
-    """per-task-category survival rate (fraction of that category's needles present verbatim)."""
-    cats={}
-    for cat,val in needles: cats.setdefault(cat,[]).append(val)
-    return {c:sum(1 for v in vs if v in out)/len(vs) for c,vs in cats.items()}
-
-def main():
-    rows=[]
-    print(f"N_SEEDS={N_SEEDS}  tools={list(TOOLS)}  contents={list(CONTENTS)}")
-    for cname,gen in CONTENTS.items():
-        for tname,fn in TOOLS.items():
-            reds=[]; lats=[]; catsurv={}
-            for seed in range(N_SEEDS):
-                text,needles=gen(seed); inT=T(text)
-                t0=time.time(); out=fn(text); ms=(time.time()-t0)*1000
-                reds.append((inT-T(out))/inT*100); lats.append(ms)
-                for c,r in survival(out,needles).items(): catsurv.setdefault(c,[]).append(r*100)
-            rec={"content":cname,"tool":tname,
-                 "reduction_mean":round(stats.mean(reds),1),"reduction_std":round(stats.pstdev(reds),1),
-                 "latency_ms":round(stats.mean(lats)),
-                 "survival":{c:round(stats.mean(v)) for c,v in catsurv.items()}}
-            rows.append(rec)
-            surv=" ".join(f"{c}={rec['survival'][c]}%" for c in sorted(rec['survival']))
-            print(f"  {cname:<12}{tname:<15} red={rec['reduction_mean']:>5}%±{rec['reduction_std']:<4} {surv}")
-    json.dump(rows,open(os.path.join(os.path.dirname(__file__),"framework_result.json"),"w"),indent=2)
-    print("wrote framework_result.json")
-
-if __name__=="__main__": main()

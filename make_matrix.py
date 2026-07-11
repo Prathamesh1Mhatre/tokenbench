@@ -26,6 +26,18 @@ VERDICTS = {
     "rtk":              ("❌ not as agent context", "the 99% is a schema SUMMARY — the data is deleted; great as an interactive human CLI, never as blind context"),
 }
 
+
+def format_cell(rec):
+    if not rec or "error" in rec:
+        return "✗ err" if rec else "—"
+    cell = f"{rec['reduction_mean']:.0f}% / fid {fid(rec['survival']):.0f}%"
+    aggregate = rec["survival"].get("aggregate")
+    if aggregate is not None:
+        cell += f" (agg {aggregate}%)"
+    if rec.get("errors") and "successes" in rec and "attempts" in rec:
+        cell += f" ⚠ {rec['successes']}/{rec['attempts']}"
+    return cell
+
 def readme_scoreboard(tools, names):
     """Regenerate the README scoreboard between markers from canonical results."""
     best = []
@@ -64,17 +76,9 @@ def main():
         row = [lane]
         for n in names:
             rec = next((r for r in tools[n]["results"] if r.get("content") == lane), None)
-            if not rec or "error" in rec:
-                row.append("✗ err" if rec else "—")
-                continue
-            f = fid(rec["survival"])
-            agg = rec["survival"].get("aggregate")
-            cell = f"{rec['reduction_mean']:.0f}% / fid {f:.0f}%"
-            if agg is not None:
-                cell += f" (agg {agg}%)"
-            row.append(cell)
+            row.append(format_cell(rec))
         lines.append("| " + " | ".join(str(x) for x in row) + " |")
-    lines += ["", "cell = reduction% / worst-case needle fidelity% (agg = aggregate-task survival)", ""]
+    lines += ["", "cell = reduction% / worst-case needle fidelity% (agg = aggregate-task survival; ⚠ = successful runs / attempts)", ""]
 
     blob = {}
     for n in names:
